@@ -90,6 +90,86 @@ section{
 
 .mid{
     width: 55%;
+    .header_box{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 7vh;
+        justify-content: space-between;
+        h1{
+            font-weight: 500;
+            font-size: 2.7rem;
+        }
+        .search_input{
+            background-color: white;
+            margin-right: 50px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            height: 75%;
+            width: 20vw;
+            padding: 10px 73px 10px 23px;
+            gap: 10px;
+            border-radius: 15px;
+            input{
+                border: 0;
+                height: 100%;
+                width: 100%;
+            }
+        }
+    }
+    .balance_box{
+        margin-top: 5vh;
+        position: relative;
+        h1{
+            font-weight: 900;
+            font-size: 1.4em;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        div{
+            margin: 10px 0;
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            p{
+                font-size: 1.7em;
+                font-weight: 700;
+            }
+            button{
+                background-color: #FAFF00;
+                font-weight: 700;
+                font-size: 1.1em;
+                border-radius: 8px;
+                padding: 0 8px;
+            }
+        }
+        h2{
+            font-weight: 600;
+            font-size: 1.4em;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        .select{
+            right: 30%;
+            position: absolute;
+            bottom: 15%;
+            background: #292727;
+            border-radius: 17px;
+            padding: 10px 20px;
+            align-items: center;
+            gap: 20px;
+            a{
+                color: #FFFFFF;
+                font-weight: 400;
+                font-size: 1.4em;
+                text-decoration: none;
+            }
+            .active{
+                background: #0D0C0C;
+                border-radius: 17px;
+                padding: 5px 15px;
+            }
+        }
+    }
 }
 
 /* ========== RIGHT PART ========== */
