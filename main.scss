@@ -211,19 +211,39 @@ section{
                     align-items: center;
                     img{
                         height: 80%;
+                        margin-left: 2px;
                     }
                 }
                 #date{
-                    width: 4vh;
+                    transition: 0.2s all ease;
+                    #valid_calendar{
+                        width: 0;
+                    }
+                    input{
+                        background-color: transparent;
+                        border: 0;
+                        width: 0;
+                    }
                 }
                 .dateshow{
                     transition: 0.2s all ease;
+                    width: 21vh;
                     #date_input{
+                        background-color: #292727;
+                        width: 100%;
                         border-radius: 5px;
                         border: 0;
                         padding: 2px;
                         font-size: 1em;
                         margin-left: 10px;
+                        color: #FFFFFF;
+                    }
+                    #valid_calendar{
+                        width: 3vh !important;
+                        height: 3vh !important;
+                        border-radius: 5px;
+                        background-color: white;
+                        padding: 3px;
                     }
                 }
             }

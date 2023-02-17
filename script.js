@@ -3,6 +3,8 @@ inputdate.setAttribute("max", new Date().toLocaleDateString('fr-ca'))
 
 var canvas = document.getElementById('crypto_chart').getContext('2d');
 
+var labelsSelectDate = []
+
 var labelsHours = [];
 
 var labelsDays = [];
@@ -60,13 +62,13 @@ var chartData = {
         borderColor: '#FF8E04',
         tension: 0.25
     }
-    // , {
-    //     label: 'Ethereum',
-    //     data: [800, 1200, 900, 1000, 700, 600, 800, 1200, 900, 1150, 750],
-    //     borderColor: '#000000',
-    //     fill: true,
-    //     tension: 0.25
-    // }
+    , {
+        label: 'Ethereum',
+        data: [800, 1200, 900, 1000, 700, 600, 800, 1200, 900, 1150, 750],
+        borderColor: '#000000',
+        fill: true,
+        tension: 0.25
+    }
     ]
 }
 
@@ -111,27 +113,28 @@ function DataUpdate(date) {
             chartData.datasets[0].data.push(prices);
 
             chart.data = chartData;
-            console.log(chartData.datasets[0].data)
             chart.update();
         })
         .catch(error => console.error(error));
     }
 
+
 function DayPerDay() {
     chartData.labels = labelsDays
     chartOptions.scales.x.min = labelsDays[0];
     chartOptions.scales.x.ticks.stepSize = 1;
-    console.log(chartOptions.scales.x.ticks.stepSize)
     document.getElementById("Hour").classList.remove("active");
     document.getElementById("DayThird").classList.remove("active");
     document.getElementById("Week").classList.remove("active");
     document.getElementById("Month").classList.remove("active");
+    document.getElementById("valid_calendar").classList.remove("active");
     document.getElementById("Day").classList.add("active");
     for (var i = 0; i < 10; i++) {
         const parts = labelsDays[i].split('-');
         const date2 = parts.reverse().join('-');
         DataUpdate(date2)
     }
+    console.log(chartData.datasets[0].data)
     chart.update();
 }
 
@@ -139,17 +142,36 @@ function DayThirdDay() {
     chartData.labels = labels3Days
     chartOptions.scales.x.min = labels3Days[0];
     chartOptions.scales.x.ticks.stepSize = 3;
-    console.log(chartOptions.scales.x.ticks.stepSize)
     document.getElementById("Hour").classList.remove("active");
     document.getElementById("Day").classList.remove("active");
     document.getElementById("Week").classList.remove("active");
     document.getElementById("Month").classList.remove("active");
+    document.getElementById("valid_calendar").classList.remove("active");
     document.getElementById("DayThird").classList.add("active");
     for (var i = 0; i < 10; i++) {
         const parts = labels3Days[i].split('-');
         const date2 = parts.reverse().join('-');
         DataUpdate(date2)
     }
+    console.log(chartData.datasets[0].data)
+    chart.update();
+}
+
+function SearchDate(){
+    chartData.labels = labelsSelectDate
+    chartOptions.scales.x.ticks.stepSize = 1;
+    document.getElementById("Hour").classList.remove("active");
+    document.getElementById("DayThird").classList.remove("active");
+    document.getElementById("Week").classList.remove("active");
+    document.getElementById("Month").classList.remove("active");
+    document.getElementById("Day").classList.add("active");
+    const parts = document.getElementById("date_input").value.split('-');
+    const date2 = parts.reverse().join('-');
+    chartOptions.scales.x.min = date2;
+    chartOptions.scales.x.max = date2;
+    labelsSelectDate.push(document.getElementById("date_input").value)
+    DataUpdate(date2)
+    console.log(chartData)
     chart.update();
 }
 
@@ -166,4 +188,5 @@ var chart = new Chart(canvas, {
 
 document.getElementById("Day").addEventListener("click", DayPerDay);
 document.getElementById("DayThird").addEventListener("click", DayThirdDay);
-document.getElementById("date").addEventListener("click", SelectDate);
+document.getElementById("calendar").addEventListener("click", SelectDate);
+document.getElementById("valid_calendar").addEventListener("click", SearchDate);
