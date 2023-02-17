@@ -89,8 +89,72 @@
                 <a href="#">P2P</a>
             </div>
         </div>
-        <div class="chart_box"></div>
-        <div class="transaction_boc"></div>
+        <div class="chart_box">
+            <div class="option">
+                <div class="time">
+                    <div id="Hour"><h1>1H</h1></div>
+                    <div class="active" id="Day"><h1>1D</h1></div>
+                    <div id="DayThird"><h1>3D</h1></div>
+                    <div id="Week"><h1>1W</h1></div>
+                    <div id="Month"><h1>1M</h1></div>
+                    <div><img src="img/calendar.png" alt=""></div>
+                </div>
+                <div class="currency_choice">
+                    <div class="choice">
+                        <img src="img/bitcoin_white_currency.png" alt="">
+                        <h1>BTC</h1>
+                        <svg width="20" height="13" viewBox="0 0 20 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path opacity="0.7" d="M16.9535 0.56604L9.75319 7.90141L2.55284 0.56604L0.340973 2.82431L9.75319 12.434L19.1654 2.82431L16.9535 0.56604Z" fill="white"/>
+                        </svg>
+                    </div>
+                    <img class="arrow_exchange" src="img/arrow_currency.png" alt="">
+                    <div class="choice">
+                        <img src="img/eth_currency.png" alt="">
+                        <h1>ETH</h1>
+                        <svg width="20" height="13" viewBox="0 0 20 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path opacity="0.7" d="M16.9535 0.56604L9.75319 7.90141L2.55284 0.56604L0.340973 2.82431L9.75319 12.434L19.1654 2.82431L16.9535 0.56604Z" fill="white"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <canvas id="crypto_chart" class="chart"></canvas>
+        </div>
+        <div class="transaction_box">
+            <div class="transaction_title">
+                <h1>Recent Transactions</h1>
+                <p>See all coins</p>
+            </div>
+            <div class="transaction">
+                <img src="img/bitcoin_transparent.png" alt="" class="logo_crypto">
+                <div>
+                    <p>Bitcoin</p>
+                    <p>Market Cap</p>
+                    <p>24h change</p>
+                    <p>BTC</p>
+                    <p style="color: #1970D6;">$40,243.70</p>
+                    <p style="color: #4AD619;">+1,56</p>
+                </div>
+                <img src="img/bitcoin_transasc_chart.png" alt="" class="little_chart">
+                <button>
+                    <p>Trade</p>
+                </button>
+            </div>
+            <div class="transaction">
+                <img src="img/Etherium_white.png" alt="" class="logo_crypto">
+                <div>
+                    <p>Etherum</p>
+                    <p>Market Cap</p>
+                    <p>24h change</p>
+                    <p>ETH</p>
+                    <p style="color: #6C1182;">$40,243.70</p>
+                    <p style="color: #D61919;">+1,56</p>
+                </div>
+                <img src="img/etherum_transasc_chart.png" alt="" class="little_chart">
+                <button>
+                    <p>Trade</p>
+                </button>
+            </div>
+        </div>
     </section>
     <section class="right">
         <div class="profil_box">
@@ -196,6 +260,9 @@
             </div>
         </div>
     </section>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@^2"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon@^1"></script>
     <script src="script.js"></script>
 </body>
 </html>
