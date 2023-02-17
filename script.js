@@ -1,3 +1,6 @@
+var inputdate = document.getElementById("date_input")
+inputdate.setAttribute("max", new Date().toLocaleDateString('fr-ca'))
+
 var canvas = document.getElementById('crypto_chart').getContext('2d');
 
 var labelsHours = [];
@@ -52,7 +55,7 @@ var chartData = {
     labels: labelsDays,
     datasets: [{
         label: 'Bitcoin',
-        data: [10000, 8000, 12000, 9000, 11000, 10000, 8000, 12000, 8000, 12000, 8000],
+        data: [],
         fill: true,
         borderColor: '#FF8E04',
         tension: 0.25
@@ -99,15 +102,16 @@ var chartOptions = {
 };
 
 function DataUpdate(date) {
+    chartData.datasets[0].data = [];
     fetch('https://api.coingecko.com/api/v3/coins/bitcoin/history?date='+date)
         .then(response => response.json())
         .then(data => {
-            const prices = data.market_data.current_price.eur.map(price => price[1]);
+            const prices = data.market_data.current_price.eur
 
-            chartData.datasets[0].data = prices;
+            chartData.datasets[0].data.push(prices);
 
             chart.data = chartData;
-            console.log(chartData.datasets.data)
+            console.log(chartData.datasets[0].data)
             chart.update();
         })
         .catch(error => console.error(error));
@@ -141,8 +145,17 @@ function DayThirdDay() {
     document.getElementById("Week").classList.remove("active");
     document.getElementById("Month").classList.remove("active");
     document.getElementById("DayThird").classList.add("active");
-    DataUpdate("&interval=3d")
+    for (var i = 0; i < 10; i++) {
+        const parts = labels3Days[i].split('-');
+        const date2 = parts.reverse().join('-');
+        DataUpdate(date2)
+    }
     chart.update();
+}
+
+function SelectDate() {
+    var divinput = document.getElementById("date");
+    divinput.classList.toggle("dateshow")
 }
 
 var chart = new Chart(canvas, {
@@ -153,3 +166,4 @@ var chart = new Chart(canvas, {
 
 document.getElementById("Day").addEventListener("click", DayPerDay);
 document.getElementById("DayThird").addEventListener("click", DayThirdDay);
+document.getElementById("date").addEventListener("click", SelectDate);

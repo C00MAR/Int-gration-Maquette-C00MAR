@@ -210,7 +210,20 @@ section{
                     justify-content: center;
                     align-items: center;
                     img{
-                        width: 80%;
+                        height: 80%;
+                    }
+                }
+                #date{
+                    width: 4vh;
+                }
+                .dateshow{
+                    transition: 0.2s all ease;
+                    #date_input{
+                        border-radius: 5px;
+                        border: 0;
+                        padding: 2px;
+                        font-size: 1em;
+                        margin-left: 10px;
                     }
                 }
             }
