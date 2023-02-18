@@ -17,6 +17,7 @@ body{
         flex-direction: column;
     }
 }
+
 button{
     border: 0px;
     background-color: transparent;
@@ -32,7 +33,6 @@ section{
 
 /* ========== LEFT PART ========== */
 
-
 .left{
     width: 20%;
     padding: 25px 0 25px 50px;
@@ -45,18 +45,10 @@ section{
     .logo_desktop{
         display: block;
     }
-    @media (max-width: 599px) {
-        .logo_desktop{
-            display: none;
-        }
-        .logo_mobile{
-            display: block;
-            z-index: 1500;
-        }
-    }
     .nav_section{
         display: flex;
         flex-direction: column;
+        position: static;
         gap: 5vh;
         margin-top: -100px;
         .dashboard_btn{
@@ -91,23 +83,6 @@ section{
             }
         }
     }
-    @media (max-width: 599px) {
-        .nav_section{
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background-color: transparent;
-            margin-top: 15vh;
-            transform: translateX(-100vw);
-            transition: 0.35s all ease;
-        }
-        .burgerActive{
-            transform: translateX(0);
-            transition: 0.65s all ease;
-        }
-    }
     .logout_btn{
         padding: 0 35px;
         font-weight: 400;
@@ -121,10 +96,57 @@ section{
     }
 }
 
+
+/* +++ RESPONSIVE LEFT +++ */
+
+@media (max-width: 599px) {
+    .left{
+        z-index: 1000;
+        .logo_desktop{
+            display: none;
+        }
+        .logo_mobile{
+            display: block;
+            z-index: 1500;
+        }
+        .nav_section{
+            position: absolute;
+            padding-top: 30px;
+            padding-left: 15px;
+            top: 0;
+            border-radius: 15px;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgb(59, 59, 59);
+            margin-top: 15vh;
+            transform: translateX(-100vw);
+            transition: 0.35s all ease;
+            .dashboard_btn{
+                width: 80%;
+                max-width: 80%;
+            }
+        }
+        .burgerActive{
+            transform: translateX(0);
+            transition: 0.65s all ease;
+        }
+        .logout_btn{
+            width: 80vw;
+            z-index: 1500;
+            transform: translateX(-100vw);
+            transition: 0.35s all ease;
+        }
+        .logActive{
+            transform: translateX(0);
+            transition: 0.65s all ease;
+        }
+    }
+}
+
 /* ========== MID PART ========== */
 
 .mid{
-    display: none;
     width: 55%;
     .header_box{
         display: flex;
@@ -370,12 +392,96 @@ section{
     }
 }
 
+/* +++ RESPONSIVE MID +++ */
+
+@media (max-width: 599px) {
+    .mid{
+        height: 90vh;
+        width: 100vw;
+        position: absolute;
+        padding: 0 15px;
+        top: 10vh;
+        .header_box h1{
+            font-size: 2.0rem;
+        }
+        .header_box .search_input{
+            width: 50vw;
+            margin: 0;
+            padding: 0 10px;
+        }
+        .balance_box{
+            margin-top: 2vh;
+            .select{
+                right: 0;
+                display: grid;
+                bottom: 0;
+                width: 50vw;
+                gap: 0;
+                grid-template-columns: repeat(2, 1fr);
+                justify-items: center;
+                justify-content: center;
+            }
+        }
+        .chart_box{
+            width: 100%;
+            align-items: flex-start;
+            padding: 1vh 1vh;
+            .option{
+                row-gap: 5px;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                .currency_choice{
+                    .arrow_exchange{
+                        width: 8vw;
+                        height: 3vh;
+                    }
+                    .choice{
+                        width: 15vh;
+                        input{
+                            width: 3vh;
+                        }
+                    }
+                }
+            }
+            .chart{
+                height: 75% !important;
+                width: 100% !important;
+            }
+        }
+        .transaction_box{
+            padding: 0 0;
+            .transaction{
+                padding: 5px 5px;
+                margin-top: 10px;
+                .little_chart{
+                    display: none;
+                }
+                div{
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    grid-template-rows: repeat(2, 1fr);
+                    p{
+                        font-size: 0.75rem;
+                    }
+                }
+            }
+        }
+    }
+    .blur{
+        filter: blur(10px);
+    }
+}
+
 /* ========== RIGHT PART ========== */
 
 .right{
-    display: none;
     width: 25%;
     padding: 25px 25px 0;
+    position: static;
+    .transac_btn{
+        display: none;
+    }
     div h1{
         font-weight: 700;
         font-size: 1.4rem;
@@ -485,6 +591,65 @@ section{
                 color: #000000;
                 background: linear-gradient(99.56deg, #FAFF00 35.82%, #29ABE2 64.75%, rgba(255, 255, 255, 0.7) 91.33%);
             }
+        }
+    }
+}
+
+/* +++ RESPONSIVE RIGHT +++ */
+
+@media (max-width: 599px) {
+    .right{
+        z-index: 100;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        overflow-x: hidden;
+        .transac{
+            z-index: 1500;
+            position: absolute;
+            top: 25px;
+            left: 80%;
+            display: block;
+            background-color: white;
+            border-radius: 15px;
+            padding: 3px;
+            width: 50px;
+            height: 50px;
+            transform: translateX(-50%);
+            cursor: pointer;
+            transition: 0.65s all ease;
+            svg{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .activeTransac{
+            left: 50%;
+            transform: translateX(-50%);
+            transition: 0.65s ease all;
+        }
+        .profil_box, .assets_box, .recent_box{
+            transform: translateX(100vw);
+            transition: 0.4s all ease;
+            margin-top: 2vh;
+        }
+        .transacShow{
+            background-color: rgb(59,59,59);
+            padding: 15px 15px;
+            transition: 0.65s all ease;
+            transform: translate(0);
+            top: 0;
+            position: relative;
+            border-radius: 15px;
+        }
+        .profil_box{
+            margin-top: -15px !important;
+        }
+        .recent_list{
+            height: 33vh !important;
+        }
+        .rencent_item div p{
+            font-size: 0.9rem !important;
         }
     }
 }

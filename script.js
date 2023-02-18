@@ -2,6 +2,7 @@ var inputdate = document.getElementById("date_input")
 inputdate.setAttribute("max", new Date().toLocaleDateString('fr-ca'))
 
 var canvas = document.getElementById('crypto_chart').getContext('2d');
+var TransacBtn = document.getElementById('transac_btn');
 var currency = "bitcoin";
 var graph = 0
 var labelsSelectDate = [];
@@ -268,6 +269,23 @@ function BurgerShow() {
     burgerlog.classList.toggle("logActive")
 }
 
+function TransacShow() {
+    var burgermenu = document.getElementById("burger_menu");
+    var burgerlog = document.getElementById("burger_logout");
+    burgermenu.classList.remove("burgerActive")
+    burgerlog.classList.remove("logActive")
+    TransacBtn.classList.toggle("activeTransac");
+    document.querySelector('.mid').classList.toggle("blur");
+    document.querySelector('.profil_box').classList.toggle("transacShow");
+    document.querySelector('.assets_box').classList.toggle("transacShow");
+    document.querySelector('.recent_box').classList.toggle("transacShow");
+    if (TransacBtn.classList == "transac") {
+        document.getElementById("burger_btn").style.display="block";
+    }
+    if (TransacBtn.classList == "transac activeTransac") {
+        document.getElementById("burger_btn").style.display="none";
+    }
+}
 
 document.getElementById("Day").addEventListener("click", DayPerDay);
 document.getElementById("DayThird").addEventListener("click", DayThirdDay);
