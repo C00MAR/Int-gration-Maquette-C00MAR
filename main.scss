@@ -12,7 +12,11 @@ body{
     flex-direction: row;
     color: #FFFFFF;
 }
-
+@media (max-width: 599px) {
+    body{
+        flex-direction: column;
+    }
+}
 button{
     border: 0px;
     background-color: transparent;
@@ -35,6 +39,21 @@ section{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    .logo_mobile{
+        display: none;
+    }
+    .logo_desktop{
+        display: block;
+    }
+    @media (max-width: 599px) {
+        .logo_desktop{
+            display: none;
+        }
+        .logo_mobile{
+            display: block;
+            z-index: 1500;
+        }
+    }
     .nav_section{
         display: flex;
         flex-direction: column;
@@ -52,7 +71,6 @@ section{
                 margin-right: 15px;
             }
         }
-
         .nav_btn_box{
             display: flex;
             gap: 15px;
@@ -73,6 +91,23 @@ section{
             }
         }
     }
+    @media (max-width: 599px) {
+        .nav_section{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: transparent;
+            margin-top: 15vh;
+            transform: translateX(-100vw);
+            transition: 0.35s all ease;
+        }
+        .burgerActive{
+            transform: translateX(0);
+            transition: 0.65s all ease;
+        }
+    }
     .logout_btn{
         padding: 0 35px;
         font-weight: 400;
@@ -89,6 +124,7 @@ section{
 /* ========== MID PART ========== */
 
 .mid{
+    display: none;
     width: 55%;
     .header_box{
         display: flex;
@@ -260,12 +296,20 @@ section{
                     display: flex;
                     flex-direction: row;
                     align-items: center;
-                    width: 15vh;
+                    width: 18vh;
                     justify-content: space-around;
                     background-color: #000000;
                     padding: 5px;
                     border-radius: 5px;
                     cursor: pointer;
+                    gap: 5px;
+                    input{
+                        text-align: center;
+                        width: 8vh;
+                        background-color: transparent;
+                        border: 0;
+                        color: #FFFFFF;
+                    }
                 }
             }
         }
@@ -329,6 +373,7 @@ section{
 /* ========== RIGHT PART ========== */
 
 .right{
+    display: none;
     width: 25%;
     padding: 25px 25px 0;
     div h1{

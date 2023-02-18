@@ -13,8 +13,9 @@
 </head>
 <body>
     <section class="left">
-        <a href="#"><img src="img/full_logo.png" alt=""></a>
-        <div class="nav_section">
+        <a href="#" class="logo_desktop"><img src="img/full_logo.png" alt=""></a>
+        <a href="#" class="logo_mobile" id="burger_btn"><img src="img/partial_logo.png" alt=""></a>
+        <div class="nav_section" id="burger_menu">
             <button class="dashboard_btn">
                 <svg width="44" height="45" viewBox="0 0 44 45" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M19.5556 45H4.88889C2.2 45 0 42.75 0 40V5C0 2.25 2.2 0 4.88889 0H19.5556V45ZM24.4444 45H39.1111C41.8 45 44 42.75 44 40V22.5H24.4444V45ZM44 17.5V5C44 2.25 41.8 0 39.1111 0H24.4444V17.5H44Z" fill="black"/>
@@ -60,7 +61,7 @@
                 </button>
             </div>
         </div>
-        <button class="logout_btn">
+        <button class="logout_btn" id="burger_logout">
             <svg width="40" height="35" viewBox="0 0 40 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path opacity="0.8" d="M30 7.77778L27.18 10.5194L32.34 15.5556H12V19.4444H32.34L27.18 24.4611L30 27.2222L40 17.5L30 7.77778ZM4 3.88889H20V0H4C1.8 0 0 1.75 0 3.88889V31.1111C0 33.25 1.8 35 4 35H20V31.1111H4V3.88889Z" fill="white" fill-opacity="0.8"/>
             </svg>
@@ -106,16 +107,16 @@
                 <div class="currency_choice">
                     <div class="choice">
                         <img src="img/bitcoin_white_currency.png" alt="">
-                        <h1>BTC</h1>
-                        <svg width="20" height="13" viewBox="0 0 20 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <input type="text" placeholder="BTC" id="currency_one">
+                        <svg id="currency_choice_one" width="20" height="13" viewBox="0 0 20 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path opacity="0.7" d="M16.9535 0.56604L9.75319 7.90141L2.55284 0.56604L0.340973 2.82431L9.75319 12.434L19.1654 2.82431L16.9535 0.56604Z" fill="white"/>
                         </svg>
                     </div>
                     <img class="arrow_exchange" src="img/arrow_currency.png" alt="">
                     <div class="choice">
                         <img src="img/eth_currency.png" alt="">
-                        <h1>ETH</h1>
-                        <svg width="20" height="13" viewBox="0 0 20 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <input type="text" placeholder="ETH" id="currency_two">
+                        <svg id="currency_choice_two" width="20" height="13" viewBox="0 0 20 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path opacity="0.7" d="M16.9535 0.56604L9.75319 7.90141L2.55284 0.56604L0.340973 2.82431L9.75319 12.434L19.1654 2.82431L16.9535 0.56604Z" fill="white"/>
                         </svg>
                     </div>
@@ -146,7 +147,7 @@
             <div class="transaction">
                 <img src="img/Etherium_white.png" alt="" class="logo_crypto">
                 <div>
-                    <p>Etherum</p>
+                    <p>Ethereum</p>
                     <p>Market Cap</p>
                     <p>24h change</p>
                     <p>ETH</p>
@@ -207,7 +208,7 @@
                 <div class="rencent_item">
                     <img src="img/etherum.png" alt="">
                     <div>
-                        <p>Etherum</p>
+                        <p>Ethereum</p>
                         <p>+ 1.646</p>
                         <p>Recieved</p>
                         <p>Today 10:02 am</p>
@@ -216,7 +217,7 @@
                 <div class="rencent_item">
                     <img src="img/etherum.png" alt="">
                     <div>
-                        <p>Etherum</p>
+                        <p>Ethereum</p>
                         <p>+ 1.646</p>
                         <p>Recieved</p>
                         <p>Today 10:02 am</p>
@@ -255,7 +256,7 @@
                 </div>
                 <div class="assets_item etherum_card">
                     <img src="img/etherum.png" alt="">
-                    <p>Etherum</p>
+                    <p>Ethereum</p>
                     <div>
                         <p>143,850.45</p>
                         <p>ETH</p>
