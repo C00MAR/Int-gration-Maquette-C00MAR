@@ -279,6 +279,7 @@ function TransacShow() {
     document.querySelector('.profil_box').classList.toggle("transacShow");
     document.querySelector('.assets_box').classList.toggle("transacShow");
     document.querySelector('.recent_box').classList.toggle("transacShow");
+    document.querySelector('.right').classList.toggle("show_transac")
     if (TransacBtn.classList == "transac") {
         document.getElementById("burger_btn").style.display="block";
     }

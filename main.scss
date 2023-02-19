@@ -12,7 +12,7 @@ body{
     flex-direction: row;
     color: #FFFFFF;
 }
-@media (max-width: 599px) {
+@media (max-width: 1200px) {
     body{
         flex-direction: column;
     }
@@ -99,7 +99,7 @@ section{
 
 /* +++ RESPONSIVE LEFT +++ */
 
-@media (max-width: 599px) {
+@media (max-width: 1200px) {
     .left{
         z-index: 1000;
         .logo_desktop{
@@ -394,18 +394,18 @@ section{
 
 /* +++ RESPONSIVE MID +++ */
 
-@media (max-width: 599px) {
+@media (max-width: 1200px) {
     .mid{
         height: 90vh;
         width: 100vw;
         position: absolute;
         padding: 0 15px;
-        top: 10vh;
+        top: 15vh;
         .header_box h1{
             font-size: 2.0rem;
         }
         .header_box .search_input{
-            width: 50vw;
+            width: 40vw;
             margin: 0;
             padding: 0 10px;
         }
@@ -433,8 +433,8 @@ section{
                 align-items: center;
                 .currency_choice{
                     .arrow_exchange{
-                        width: 8vw;
-                        height: 3vh;
+                        width: 30px;
+                        height: 25px;
                     }
                     .choice{
                         width: 15vh;
@@ -455,11 +455,10 @@ section{
                 padding: 5px 5px;
                 margin-top: 10px;
                 .little_chart{
-                    display: none;
+                    display: block;
                 }
                 div{
                     display: grid;
-                    grid-template-columns: repeat(2, 1fr);
                     grid-template-rows: repeat(2, 1fr);
                     p{
                         font-size: 0.75rem;
@@ -472,9 +471,16 @@ section{
         filter: blur(10px);
     }
 }
+@media (max-width: 900px) {
+    .little_chart{
+        display: none !important;
+    }
+}
 
 /* ========== RIGHT PART ========== */
-
+.transac{
+    display: none;
+}
 .right{
     width: 25%;
     padding: 25px 25px 0;
@@ -597,39 +603,43 @@ section{
 
 /* +++ RESPONSIVE RIGHT +++ */
 
-@media (max-width: 599px) {
+
+
+@media (max-width: 1200px) {
+    .transac{
+        z-index: 1500;
+        position: absolute;
+        top: 25px;
+        left: 80%;
+        display: block;
+        background-color: white;
+        border-radius: 15px;
+        padding: 3px;
+        width: 50px;
+        height: 50px;
+        transform: translateX(-50%);
+        cursor: pointer;
+        transition: 0.65s all ease;
+        svg{
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .activeTransac{
+        left: 50%;
+        transform: translateX(-50%);
+        transition: 0.65s ease all;
+    }
     .right{
         z-index: 100;
         position: absolute;
         top: 0;
         width: 100%;
+        transform: scale(0);
         overflow-x: hidden;
-        .transac{
-            z-index: 1500;
-            position: absolute;
-            top: 25px;
-            left: 80%;
-            display: block;
-            background-color: white;
-            border-radius: 15px;
-            padding: 3px;
-            width: 50px;
-            height: 50px;
-            transform: translateX(-50%);
-            cursor: pointer;
-            transition: 0.65s all ease;
-            svg{
-                width: 100%;
-                height: 100%;
-            }
-        }
-        .activeTransac{
-            left: 50%;
-            transform: translateX(-50%);
-            transition: 0.65s ease all;
-        }
+        transform-origin: top right;
+        transition: 0.4s all ease;
         .profil_box, .assets_box, .recent_box{
-            transform: translateX(100vw);
             transition: 0.4s all ease;
             margin-top: 2vh;
         }
@@ -637,7 +647,6 @@ section{
             background-color: rgb(59,59,59);
             padding: 15px 15px;
             transition: 0.65s all ease;
-            transform: translate(0);
             top: 0;
             position: relative;
             border-radius: 15px;
@@ -651,5 +660,11 @@ section{
         .rencent_item div p{
             font-size: 0.9rem !important;
         }
+    }
+    .show_transac{
+        transform: scale(1);
+        transform-origin: top right;
+        transition: 0.65s all ease;
+        overflow-x: hidden;
     }
 }
