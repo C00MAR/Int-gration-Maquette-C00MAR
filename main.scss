@@ -477,7 +477,16 @@ section{
     }
 }
 
+@media (max-width: 400px) {
+    .transaction div{
+        grid-template-columns: repeat(2,1fr) !important;
+    }
+}
+
+
 /* ========== RIGHT PART ========== */
+
+
 .transac{
     display: none;
 }
@@ -636,7 +645,7 @@ section{
         top: 0;
         width: 100%;
         transform: scale(0);
-        overflow-x: hidden;
+        // overflow-x: hidden;
         transform-origin: top right;
         transition: 0.4s all ease;
         .profil_box, .assets_box, .recent_box{
@@ -660,11 +669,17 @@ section{
         .rencent_item div p{
             font-size: 0.9rem !important;
         }
+        .assets_box{
+            .assets_list{
+                .assets_item{
+                    height: 17vh;
+                }
+            }
+        }
     }
     .show_transac{
         transform: scale(1);
         transform-origin: top right;
         transition: 0.65s all ease;
-        overflow-x: hidden;
     }
 }
